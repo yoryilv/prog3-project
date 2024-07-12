@@ -188,8 +188,11 @@ CMakeFiles/proyecto_progra.dir/main.cpp.obj: C:/Users/jorge\ l/Desktop/progra3/p
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
   C:/Users/jorge\ l/Desktop/progra3/prog3-project/CManejoPeliculas.h \
+  C:/Users/jorge\ l/Desktop/progra3/prog3-project/CMovieExplorer.h \
   C:/Users/jorge\ l/Desktop/progra3/prog3-project/CMovieTitleMap.h \
-  C:/Users/jorge\ l/Desktop/progra3/prog3-project/CPelicula.h
+  C:/Users/jorge\ l/Desktop/progra3/prog3-project/CPelicula.h \
+  C:/Users/jorge\ l/Desktop/progra3/prog3-project/CSimilarMoviesStrategy.h \
+  C:/Users/jorge\ l/Desktop/progra3/prog3-project/CTagBasedSimilarMovies.h
 
 
 C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc:
@@ -442,6 +445,8 @@ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32
 
 C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h:
 
+C:/Users/jorge\ l/Desktop/progra3/prog3-project/CSimilarMoviesStrategy.h:
+
 C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/limits.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h:
@@ -568,4 +573,8 @@ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include
 
 C:/Users/jorge\ l/Desktop/progra3/prog3-project/CManejoPeliculas.h:
 
+C:/Users/jorge\ l/Desktop/progra3/prog3-project/CMovieExplorer.h:
+
 C:/Users/jorge\ l/Desktop/progra3/prog3-project/CPelicula.h:
+
+C:/Users/jorge\ l/Desktop/progra3/prog3-project/CTagBasedSimilarMovies.h:

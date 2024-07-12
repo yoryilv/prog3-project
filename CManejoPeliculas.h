@@ -5,18 +5,26 @@
 #include <algorithm>
 
 void mostrarDetallesPelicula(Pelicula* pelicula) {
-    cout << "Titulo: " << pelicula->titulo << "\nSinopsis: " << pelicula->plot_synopsis << "\n";
-    cout << "[1] Like [2] Ver mas tarde [3] Volver\n";
+    cout << "Título: " << pelicula->titulo << "\n";
+
+    // Recortar la sinopsis si es más larga de 50 caracteres
+    string sinopsisPreview = pelicula->plot_synopsis;
+    if (sinopsisPreview.length() > 700) {
+        sinopsisPreview = sinopsisPreview.substr(0, 700) + "...";
+    }
+    cout << "Sinopsis: " << sinopsisPreview << "\n";
+
+    cout << "[1] Like [2] Ver más tarde [3] Volver\n";
     int choice;
     cin >> choice;
     switch (choice) {
         case 1:
             pelicula->like = true;
-            cout << "Marcada con 'Like'.\n";
+            cout << "Has marcado la película como 'Like'.\n";
             break;
         case 2:
             pelicula->watch_later = true;
-            cout << "Añadida a 'Ver mas tarde'.\n";
+            cout << "Película añadida a 'Ver más tarde'.\n";
             break;
         default:
             break;

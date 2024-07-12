@@ -1,6 +1,9 @@
 #include "CPelicula.h"
 #include "CManejoPeliculas.h"
 #include "CMovieTitleMap.h"
+#include "CMovieExplorer.h"
+#include "CTagBasedSimilarMovies.h"
+
 
 void mostrarMenu() {
     cout << "\n***** Menu Principal de Streaming *****\n";
@@ -8,15 +11,19 @@ void mostrarMenu() {
     cout << "2. Buscar pelicula por tag\n";
     cout << "3. Ver peliculas 'Ver mas tarde'\n";
     cout << "4. Ver peliculas con 'Like'\n";
-    cout << "5. Salir\n";
+    cout << "5. Ver peliculas similares a las marcadas con 'Like'\n";
+    cout << "6. Salir\n";
     cout << "Ingrese su opcion: ";
 }
 
 int main() {
     vector<Pelicula*> peliculas = leerCSV("mpst_full_data.csv");
     CMovieTitleMap* titleMap = CMovieTitleMap::getInstance();
+    TagBasedSimilarMovies strategy;
+    MovieExplorer explorer(&strategy, peliculas);  // Crea el explorador con la estrategia
+
     unordered_map<string, vector<int>> mapTags;
-    auto& map = CMovieTitleMap::getInstance()->getMap();
+    auto& map = titleMap->getMap();
 
     for (int i = 0; i < peliculas.size(); ++i) {
         titleMap->insertar(peliculas[i]->titulo, i);
@@ -30,25 +37,21 @@ int main() {
         mostrarMenu();
         cin >> op;
         switch (op) {
-            case 1:
-                buscarPorTitulo(map, peliculas);
+            case 1: buscarPorTitulo(map, peliculas);
                 break;
-            case 2:
-                buscarPorTag(mapTags, peliculas);
+            case 2: buscarPorTag(mapTags, peliculas);
                 break;
-            case 3:
-                mostrarVerMasTarde(peliculas);
+            case 3: mostrarVerMasTarde(peliculas);
                 break;
-            case 4:
-                mostrarLikes(peliculas);
+            case 4: mostrarLikes(peliculas);
                 break;
-            case 5:
-                cout << "Saliendo del programa...\n";
+            case 5: explorer.showSimilarToAllLiked();
                 break;
-            default:
-                cout << "Opcion no valida. Intente de nuevo.\n";
+            case 6: cout << "Saliendo del programa...\n";
+                break;
+            default: cout << "Opcion no valida. Intente de nuevo.\n";
         }
-    } while (op != 5);
+    } while (op != 6);
 
     // Limpieza de memoria
     for (auto pelicula : peliculas) delete pelicula;

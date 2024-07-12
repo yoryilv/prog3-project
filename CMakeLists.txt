@@ -7,4 +7,7 @@ add_executable(proyecto_progra main.cpp
         CPelicula.h
         CManejoPeliculas.h
         CMovieTitleMap.h
+        CSimilarMoviesStrategy.h
+        CTagBasedSimilarMovies.h
+        CMovieExplorer.h
 )
