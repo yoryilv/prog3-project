@@ -1,7 +1,8 @@
 #ifndef PROYECTO_PROGRA_CMANEJOPELICULAS_H
 #define PROYECTO_PROGRA_CMANEJOPELICULAS_H
 #include "CPelicula.h"
-#include "CTrie.h"
+#include "CMovieTitleMap.h"
+#include <algorithm>
 
 void mostrarResultados(const vector<int>& indices, const vector<Pelicula*>& peliculas) {
     int count = 0;
@@ -12,18 +13,31 @@ void mostrarResultados(const vector<int>& indices, const vector<Pelicula*>& peli
     }
 }
 
-void buscarPorTitulo(Trie& trie, const vector<Pelicula*>& peliculas) {
-    string titulo;
-    cout << "Ingrese el titulo de la pelicula: ";
+void buscarPorTitulo(const unordered_map<string, vector<int>>& map, const vector<Pelicula*>& peliculas) {
+    string inputTitulo;
+    cout << "Ingrese titulo de pelicula: ";
     cin.ignore();  // Ignorar el '\n' restante en el buffer
-    getline(cin, titulo);
+    getline(cin, inputTitulo);
 
-    vector<int> resultados = trie.buscar(titulo);
-    if (resultados.empty()) {
-        cout << "No se encontraron peliculas con ese titulo.\n";
+    bool encontrado = false;
+    int count = 0;  // Contador para total de peliculas mostradas
+
+    for (const auto& pair : map) {
+        if (pair.first.find(inputTitulo) != string::npos) {
+            if (count >= 5) break;  // Detiene si ya mostro 5 peliculas
+            encontrado = true;
+
+            // Calcular cuantas peliculas mas se pueden mostrar
+            int restantes = min(static_cast<int>(pair.second.size()), 5 - count);
+            vector<int> limitedIndices(pair.second.begin(), pair.second.begin() + restantes);
+            mostrarResultados(limitedIndices, peliculas);
+
+            count += restantes;
+        }
     }
-    else mostrarResultados(resultados, peliculas);
+    if (!encontrado) cout << "No se encontro peliculas con ese titulo.\n";
 }
+
 
 void buscarPorTag(unordered_map<string, vector<int>>& mapTags, const vector<Pelicula*>& peliculas) {
     string tag;

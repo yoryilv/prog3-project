@@ -1,6 +1,6 @@
 #include "CPelicula.h"
-#include "CTrie.h"
 #include "CManejoPeliculas.h"
+#include "CMovieTitleMap.h"
 
 void mostrarMenu() {
     cout << "\n***** Menu Principal de Streaming *****\n";
@@ -14,18 +14,15 @@ void mostrarMenu() {
 
 int main() {
     vector<Pelicula*> peliculas = leerCSV("mpst_full_data.csv");
-    Trie* triePeliculas = Trie::getInstance();
+    CMovieTitleMap* titleMap = CMovieTitleMap::getInstance();
     unordered_map<string, vector<int>> mapTags;
+    auto& map = CMovieTitleMap::getInstance()->getMap();
 
-    int i = 0;
-    for (const auto& pelicula : peliculas) {
-        triePeliculas->insertar(pelicula->titulo, i);
-        istringstream tagStream(pelicula->tags);
+    for (int i = 0; i < peliculas.size(); ++i) {
+        titleMap->insertar(peliculas[i]->titulo, i);
+        istringstream tagStream(peliculas[i]->tags);
         string tag;
-        while (getline(tagStream, tag, ',')) {
-            mapTags[tag].push_back(i);
-        }
-        ++i;
+        while (getline(tagStream, tag, ',')) mapTags[tag].push_back(i);
     }
 
     int op;
@@ -34,7 +31,7 @@ int main() {
         cin >> op;
         switch (op) {
             case 1:
-                buscarPorTitulo(*triePeliculas, peliculas);
+                buscarPorTitulo(map, peliculas);
                 break;
             case 2:
                 buscarPorTag(mapTags, peliculas);
