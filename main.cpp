@@ -1,6 +1,11 @@
-#include <iostream>
+#include "CPelicula.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+    vector<Pelicula> peliculas;
+
+    peliculas = leerCSV("mpst_full_data.csv");
+
+
     return 0;
 }
