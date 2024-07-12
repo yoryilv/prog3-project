@@ -17,9 +17,7 @@ private:
 
 public:
     static CMovieTitleMap* getInstance() {
-        if (instance == nullptr) {
-            instance = unique_ptr<CMovieTitleMap>(new CMovieTitleMap());
-        }
+        if (instance == nullptr) instance = unique_ptr<CMovieTitleMap>(new CMovieTitleMap());
         return instance.get();
     }
 
@@ -28,9 +26,7 @@ public:
     CMovieTitleMap& operator=(const CMovieTitleMap&) = delete;
 
     // Método para manejar el mapa
-    void insertar(const string& titulo, int index) {
-        titleMap[titulo].push_back(index);
-    }
+    void insertar(const string& titulo, int index) {titleMap[titulo].push_back(index);}
 
     vector<int> buscar(const string& titulo) {
         auto it = titleMap.find(titulo);
@@ -38,9 +34,7 @@ public:
         return {};  // Devuelve un vector vacío si no se encuentra el título
     }
 
-    const unordered_map<string, vector<int>>& getMap() const {
-        return titleMap;
-    }
+    const unordered_map<string, vector<int>>& getMap() const {return titleMap;}
 };
 
 unique_ptr<CMovieTitleMap> CMovieTitleMap::instance = nullptr;
