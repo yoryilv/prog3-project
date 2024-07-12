@@ -1,16 +1,43 @@
 #ifndef PROYECTO_PROGRA_CPELICULA_H
 #define PROYECTO_PROGRA_CPELICULA_H
+
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
-#include <unordered_map>
 #include <sstream>
+#include <unordered_map>
 using namespace std;
 
-struct Pelicula {
+class Pelicula {
+public:
     string imdb_id, titulo, plot_synopsis, tags, split, synopsis_source;
     bool like, watch_later;
+
+    virtual void display() const {
+        cout << "Título: " << titulo << "\nSinopsis: " << plot_synopsis << endl;
+    }
+
+    virtual ~Pelicula() {}
+};
+
+class PeliculaFactory {
+public:
+    static Pelicula* crearPelicula(const vector<string>& campos) {
+        if (campos.size() == 6) {
+            Pelicula* p = new Pelicula();
+            p->imdb_id = campos[0];
+            p->titulo = campos[1];
+            p->plot_synopsis = campos[2];
+            p->tags = campos[3];
+            p->split = campos[4];
+            p->synopsis_source = campos[5];
+            p->like = false;
+            p->watch_later = false;
+            return p;
+        }
+        return nullptr;
+    }
 };
 
 vector<string> separarCSV(ifstream& archivo, string& linea) {
@@ -42,8 +69,8 @@ vector<string> separarCSV(ifstream& archivo, string& linea) {
     return campos;
 }
 
-vector<Pelicula> leerCSV(const string& nombreArchivo) {
-    vector<Pelicula> peliculas;
+vector<Pelicula*> leerCSV(const string& nombreArchivo) {
+    vector<Pelicula*> peliculas;
     ifstream archivo(nombreArchivo);
 
     if (!archivo.is_open()) {
@@ -52,30 +79,16 @@ vector<Pelicula> leerCSV(const string& nombreArchivo) {
     }
 
     string linea;
-
-    getline(archivo, linea);
-    int i = 0;
+    getline(archivo, linea); // Ignorar la primera línea de encabezado
     while (getline(archivo, linea)) {
-        i += 1;
         vector<string> campos = separarCSV(archivo, linea);
-
-        if (campos.size() == 6) {
-            peliculas.emplace_back(Pelicula{
-                    campos[0],
-                    campos[1],
-                    campos[2],
-                    campos[3],
-                    campos[4],
-                    campos[5],
-                    false,
-                    false
-            });
-        }
-        else cout << "Error en formato de linea: " << linea << endl;
+        Pelicula* pelicula = PeliculaFactory::crearPelicula(campos);
+        if (pelicula != nullptr) peliculas.push_back(pelicula);
+        else cout << "Error en formato de línea: " << linea << endl;
     }
 
     archivo.close();
     return peliculas;
 }
 
-#endif //PROYECTO_PROGRA_CPELICULA_H
+#endif // PROYECTO_PROGRA_CPELICULA_H

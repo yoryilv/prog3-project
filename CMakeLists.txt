@@ -4,4 +4,6 @@ project(proyecto_progra)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(proyecto_progra main.cpp
-        CPelicula.h)
+        CPelicula.h
+        CTrie.h
+        CManejoPeliculas.h)
