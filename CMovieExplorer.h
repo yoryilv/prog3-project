@@ -54,7 +54,7 @@ public:
         while (continuar && currentIndex < similarMovies.size()) {
             int nextIndex = min(currentIndex + 5, int(similarMovies.size()));
             cout << "-------------------------------------------------------\n";
-            cout << "Películas similares basadas en 'Likes' totales:\n";
+            cout << "Peliculas similares basadas en 'Likes' totales:\n";
             for (int i = currentIndex; i < nextIndex; ++i)
                 cout << i+1 << ") " << similarMovies[i]->titulo << "\n";
 
@@ -62,16 +62,15 @@ public:
             if (currentIndex < similarMovies.size()) {
                 cout << "-------------------------------------------------------\n";
                 cout << "-Seleccionar-" << endl;
-                cout << "[s] Siguientes 5 películas" << endl;
-                cout << "[n] Regresar al menú" << endl;
-                cout << "Elección:";
+                cout << "[s] Siguientes 5 peliculas" << endl;
+                cout << "[n] Regresar al menu" << endl;
+                cout << "Eleccion:";
                 char decision;
                 cin >> decision;
                 if (decision != 's' && decision != 'S') continuar = false;
             }
             else continuar = false;  // No más películas para mostrar
         }
-        cout << "\n";
     }
 };
 

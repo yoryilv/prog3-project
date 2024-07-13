@@ -155,7 +155,7 @@ void buscarPorTag(unordered_map<string, vector<int>>& mapTags, const vector<T*>&
 
 template<typename T>
 void mostrarVerMasTarde(const vector<T*>& peliculas) {
-    cout << "-------------------------------------------------------\n";
+    cout << "-------------------------------------------------------";
     cout << "\nPeliculas en 'Ver mas tarde':\n";
     for (const auto& pelicula : peliculas) {
         if (pelicula->watch_later) cout << pelicula->titulo << endl;

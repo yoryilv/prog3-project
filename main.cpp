@@ -54,7 +54,7 @@ int main() {
                 break;
             case 6: cout << "Saliendo del programa...\n";
                 break;
-            default: cout << "Opción no válida. Intente de nuevo.\n";
+            default: cout << "Opcion no válida. Intente de nuevo.\n";
         }
     } while (op != 6);
 
