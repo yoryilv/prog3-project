@@ -10,7 +10,7 @@ void mostrarDetallesPelicula(T* pelicula) {
     cout << "Titulo: " << pelicula->titulo << "\n";
 
     cout << endl;
-    // Recortar la sinopsis si es más larga de 50 caracteres
+    // Recortar la sinopsis si es más larga de 700 caracteres
     string sinopsisPreview = pelicula->plot_synopsis;
     if (sinopsisPreview.length() > 700) {
         sinopsisPreview = sinopsisPreview.substr(0, 700) + "...";
@@ -132,22 +132,18 @@ void buscarPorTag(unordered_map<string, vector<int>>& mapTags, const vector<T*>&
         cout << "Eleccion: ";
         string decision;
         cin >> decision;
-        if (decision == "n") {
-            currentIndex += 5;
-        } else if (decision == "q") {
-            continuar = false;
-        } else {
+        if (decision == "n") currentIndex += 5;
+        else if (decision == "q") continuar = false;
+        else {
             try {
                 int peliculaId = stoi(decision);
                 if (peliculaId >= 0 && peliculaId < peliculas.size() && find(toDisplay.begin(), toDisplay.end(), peliculaId) != toDisplay.end()) {
                     mostrarDetallesPelicula<T>(peliculas[peliculaId]); // Asegúrate de que mostrarDetallesPelicula también sea template
                     break;
-                } else {
-                    cout << "ID no valido. Intente nuevamente.\n";
                 }
-            } catch (const std::exception& e) {
-                cout << "Entrada no valida. Intente nuevamente.\n";
+                else cout << "ID no valido. Intente nuevamente.\n";
             }
+            catch (const std::exception& e) {cout << "Entrada no valida. Intente nuevamente.\n";}
         }
     }
 }

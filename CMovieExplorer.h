@@ -14,7 +14,7 @@ private:
     vector<T*> movies;                         // Lista de películas disponibles
 
 public:
-    // Constructor: inicializa con una estrategia y una lista de películas
+    // Constructor: inicializa con una estrategia y lista de películas
     MovieExplorer(const SimilarMoviesStrategy<T>* strategy, const vector<T*>& movies)
             : strategy(strategy), movies(movies) {}
 
@@ -33,9 +33,7 @@ public:
             if (movie->like) {
                 istringstream tagStream(movie->tags);
                 string tag;
-                while (getline(tagStream, tag, ',')) {
-                    allTags.insert(tag);
-                }
+                while (getline(tagStream, tag, ',')) allTags.insert(tag);
             }
         }
 

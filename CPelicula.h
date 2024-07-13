@@ -9,7 +9,6 @@
 #include <unordered_map>
 #include <thread>
 #include <mutex>
-
 using namespace std;
 
 template<typename T>
@@ -124,4 +123,4 @@ vector<Pelicula<T>*> leerCSV(const string& nombreArchivo, int numThreads) {
     return peliculas;
 }
 
-#endif // PROYECTO_PROGRA_CPELICULA_H
+#endif PROYECTO_PROGRA_CPELICULA_H

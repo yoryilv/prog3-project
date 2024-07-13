@@ -16,9 +16,7 @@ public:
         stringstream ss(baseMovie->tags);
 
         // Separar tags de la película base
-        while (getline(ss, tag, ',')) {
-            baseTags.push_back(tag);
-        }
+        while (getline(ss, tag, ',')) baseTags.push_back(tag);
 
         // Buscar películas similares basándose en los tags
         for (const auto& movie : allMovies) {

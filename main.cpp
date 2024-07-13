@@ -4,7 +4,6 @@
 #include "CMovieExplorer.h"
 #include "CTagBasedSimilarMovies.h"
 
-// Declaración de tipo específico de Pelicula
 typedef Pelicula<string> PeliculaEspecifica;
 
 void mostrarMenu() {
@@ -20,7 +19,6 @@ void mostrarMenu() {
 }
 
 int main() {
-    // Asegúrate de que PeliculaEspecifica esté bien definido y usado correctamente
     vector<PeliculaEspecifica*> peliculas = leerCSV<string>("mpst_full_data.csv", 2);
 
     CMovieTitleMap* titleMap = CMovieTitleMap::getInstance();
