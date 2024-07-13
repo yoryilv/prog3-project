@@ -1,3 +1,3 @@
-C:/Users/josea/CLionProjects/prog3-project/cmake-build-debug/CMakeFiles/proyecto_progra.dir
-C:/Users/josea/CLionProjects/prog3-project/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/josea/CLionProjects/prog3-project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/j_lea/OneDrive/Escritorio/prog3-project/cmake-build-debug/CMakeFiles/proyecto_progra.dir
+C:/Users/j_lea/OneDrive/Escritorio/prog3-project/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/j_lea/OneDrive/Escritorio/prog3-project/cmake-build-debug/CMakeFiles/rebuild_cache.dir

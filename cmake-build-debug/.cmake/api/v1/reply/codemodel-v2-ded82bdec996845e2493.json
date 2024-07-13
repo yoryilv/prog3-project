@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "proyecto_progra::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-proyecto_progra-Debug-5fc16c12060804ca6d3f.json",
+					"jsonFile" : "target-proyecto_progra-Debug-9a38f562f6256c45b601.json",
 					"name" : "proyecto_progra",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/josea/CLionProjects/prog3-project/cmake-build-debug",
-		"source" : "C:/Users/josea/CLionProjects/prog3-project"
+		"build" : "C:/Users/j_lea/OneDrive/Escritorio/prog3-project/cmake-build-debug",
+		"source" : "C:/Users/j_lea/OneDrive/Escritorio/prog3-project"
 	},
 	"version" : 
 	{

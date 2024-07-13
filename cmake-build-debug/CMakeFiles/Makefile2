@@ -53,10 +53,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\josea\CLionProjects\prog3-project
+CMAKE_SOURCE_DIR = C:\Users\j_lea\OneDrive\Escritorio\prog3-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\josea\CLionProjects\prog3-project\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\j_lea\OneDrive\Escritorio\prog3-project\cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -80,14 +80,14 @@ clean: CMakeFiles/proyecto_progra.dir/clean
 CMakeFiles/proyecto_progra.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto_progra.dir\build.make CMakeFiles/proyecto_progra.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\proyecto_progra.dir\build.make CMakeFiles/proyecto_progra.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\josea\CLionProjects\prog3-project\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target proyecto_progra"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\j_lea\OneDrive\Escritorio\prog3-project\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target proyecto_progra"
 .PHONY : CMakeFiles/proyecto_progra.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/proyecto_progra.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\josea\CLionProjects\prog3-project\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\j_lea\OneDrive\Escritorio\prog3-project\cmake-build-debug\CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/proyecto_progra.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\josea\CLionProjects\prog3-project\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\j_lea\OneDrive\Escritorio\prog3-project\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/proyecto_progra.dir/rule
 
 # Convenience name for target.

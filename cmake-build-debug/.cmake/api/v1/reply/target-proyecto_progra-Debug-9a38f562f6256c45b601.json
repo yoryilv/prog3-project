@@ -48,7 +48,7 @@
 				[
 					1
 				],
-				"standard" : "17"
+				"standard" : "17;-pthread"
 			},
 			"sourceIndexes" : 
 			[

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/josea/CLionProjects/prog3-project/cmake-build-debug"
+			"value" : "c:/Users/j_lea/OneDrive/Escritorio/prog3-project/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -643,7 +643,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/josea/CLionProjects/prog3-project/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/j_lea/OneDrive/Escritorio/prog3-project/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -715,7 +715,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/josea/CLionProjects/prog3-project"
+			"value" : "C:/Users/j_lea/OneDrive/Escritorio/prog3-project"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1363,7 +1363,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/josea/CLionProjects/prog3-project/cmake-build-debug"
+			"value" : "C:/Users/j_lea/OneDrive/Escritorio/prog3-project/cmake-build-debug"
 		},
 		{
 			"name" : "proyecto_progra_IS_TOP_LEVEL",
@@ -1387,7 +1387,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/josea/CLionProjects/prog3-project"
+			"value" : "C:/Users/j_lea/OneDrive/Escritorio/prog3-project"
 		}
 	],
 	"kind" : "cache",
