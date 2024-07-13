@@ -6,6 +6,7 @@
 
 
 void mostrarMenu() {
+    cout << "-------------------------------------------------------";
     cout << "\n***** Menu Principal de Streaming *****\n";
     cout << "1. Buscar pelicula por titulo\n";
     cout << "2. Buscar pelicula por tag\n";

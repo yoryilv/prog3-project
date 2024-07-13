@@ -14,10 +14,6 @@ public:
     string imdb_id, titulo, plot_synopsis, tags, split, synopsis_source;
     bool like, watch_later;
 
-    virtual void display() const {
-        cout << "Título: " << titulo << "\nSinopsis: " << plot_synopsis << endl;
-    }
-
     virtual ~Pelicula() {}
 };
 
@@ -84,7 +80,7 @@ vector<Pelicula*> leerCSV(const string& nombreArchivo) {
         vector<string> campos = separarCSV(archivo, linea);
         Pelicula* pelicula = PeliculaFactory::crearPelicula(campos);
         if (pelicula != nullptr) peliculas.push_back(pelicula);
-        else cout << "Error en formato de línea: " << linea << endl;
+        else cout << "Error en formato de linea: " << linea << endl;
     }
 
     archivo.close();
