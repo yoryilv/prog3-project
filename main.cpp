@@ -4,6 +4,8 @@
 #include "CMovieExplorer.h"
 #include "CTagBasedSimilarMovies.h"
 
+// Declaración de tipo específico de Pelicula
+typedef Pelicula<string> PeliculaEspecifica;
 
 void mostrarMenu() {
     cout << "-------------------------------------------------------";
@@ -18,10 +20,12 @@ void mostrarMenu() {
 }
 
 int main() {
-    vector<Pelicula*> peliculas = leerCSV("mpst_full_data.csv");
+    // Asegúrate de que PeliculaEspecifica esté bien definido y usado correctamente
+    vector<PeliculaEspecifica*> peliculas = leerCSV<std::string>("mpst_full_data.csv");
+
     CMovieTitleMap* titleMap = CMovieTitleMap::getInstance();
-    TagBasedSimilarMovies strategy;
-    MovieExplorer explorer(&strategy, peliculas);  // Crea el explorador con la estrategia
+    TagBasedSimilarMovies<PeliculaEspecifica> strategy;
+    MovieExplorer<PeliculaEspecifica> explorer(&strategy, peliculas);
 
     unordered_map<string, vector<int>> mapTags;
     auto& map = titleMap->getMap();
@@ -38,19 +42,19 @@ int main() {
         mostrarMenu();
         cin >> op;
         switch (op) {
-            case 1: buscarPorTitulo(map, peliculas);
+            case 1: buscarPorTitulo<PeliculaEspecifica>(map, peliculas);
                 break;
-            case 2: buscarPorTag(mapTags, peliculas);
+            case 2: buscarPorTag<PeliculaEspecifica>(mapTags, peliculas);
                 break;
-            case 3: mostrarVerMasTarde(peliculas);
+            case 3: mostrarVerMasTarde<PeliculaEspecifica>(peliculas);
                 break;
-            case 4: mostrarLikes(peliculas);
+            case 4: mostrarLikes<PeliculaEspecifica>(peliculas);
                 break;
             case 5: explorer.showSimilarToAllLiked();
                 break;
             case 6: cout << "Saliendo del programa...\n";
                 break;
-            default: cout << "Opcion no valida. Intente de nuevo.\n";
+            default: cout << "Opción no válida. Intente de nuevo.\n";
         }
     } while (op != 6);
 
@@ -59,3 +63,4 @@ int main() {
 
     return 0;
 }
+

@@ -9,33 +9,35 @@
 #include <unordered_map>
 using namespace std;
 
+
+template<typename T>
 class Pelicula {
 public:
-    string imdb_id, titulo, plot_synopsis, tags, split, synopsis_source;
+    T imdb_id, titulo, plot_synopsis, tags, split, synopsis_source;
     bool like, watch_later;
-
-    virtual ~Pelicula() {}
 };
 
+typedef Pelicula<std::string> PeliculaEspecifica;
+
+template<typename T>
 class PeliculaFactory {
 public:
-    static Pelicula* crearPelicula(const vector<string>& campos) {
-        if (campos.size() == 6) {
-            Pelicula* p = new Pelicula();
-            p->imdb_id = campos[0];
-            p->titulo = campos[1];
-            p->plot_synopsis = campos[2];
-            p->tags = campos[3];
-            p->split = campos[4];
-            p->synopsis_source = campos[5];
-            p->like = false;
-            p->watch_later = false;
-            return p;
-        }
-        return nullptr;
+    static Pelicula<T>* crearPelicula(const vector<string>& campos) {
+        if (campos.size() != 6) return nullptr;
+        Pelicula<T>* p = new Pelicula<T>();
+        p->imdb_id = campos[0];
+        p->titulo = campos[1];
+        p->plot_synopsis = campos[2];
+        p->tags = campos[3];
+        p->split = campos[4];
+        p->synopsis_source = campos[5];
+        p->like = false;
+        p->watch_later = false;
+        return p;
     }
 };
 
+// Función para separar los campos del CSV
 vector<string> separarCSV(ifstream& archivo, string& linea) {
     vector<string> campos;
     string campo;
@@ -65,26 +67,32 @@ vector<string> separarCSV(ifstream& archivo, string& linea) {
     return campos;
 }
 
-vector<Pelicula*> leerCSV(const string& nombreArchivo) {
-    vector<Pelicula*> peliculas;
+template<typename T>
+vector<Pelicula<T>*> leerCSV(const string& nombreArchivo) {
+    vector<Pelicula<T>*> peliculas;
     ifstream archivo(nombreArchivo);
-
     if (!archivo.is_open()) {
         cerr << "No se pudo abrir el archivo: " << nombreArchivo << endl;
         return peliculas;
     }
 
     string linea;
-    getline(archivo, linea); // Ignorar la primera línea de encabezado
+    getline(archivo, linea);
     while (getline(archivo, linea)) {
         vector<string> campos = separarCSV(archivo, linea);
-        Pelicula* pelicula = PeliculaFactory::crearPelicula(campos);
-        if (pelicula != nullptr) peliculas.push_back(pelicula);
-        else cout << "Error en formato de linea: " << linea << endl;
+        Pelicula<T>* pelicula = PeliculaFactory<T>::crearPelicula(campos);
+        if (pelicula) {
+            peliculas.push_back(pelicula);
+        } else {
+            cout << "Error procesando línea: " << linea << endl;
+        }
     }
 
     archivo.close();
     return peliculas;
 }
+
+
+
 
 #endif // PROYECTO_PROGRA_CPELICULA_H

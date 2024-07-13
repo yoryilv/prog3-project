@@ -3,22 +3,29 @@
 
 #include "CSimilarMoviesStrategy.h"
 #include <sstream>
+#include <vector>
+#include <string>
 
-class TagBasedSimilarMovies : public SimilarMoviesStrategy {
+template<typename T>
+class TagBasedSimilarMovies : public SimilarMoviesStrategy<T> {
 public:
-    vector<Pelicula*> findSimilar(const vector<Pelicula*>& allMovies, const Pelicula* baseMovie) const override{
-        vector<Pelicula*> similarMovies;
+    vector<T*> findSimilar(const vector<T*>& allMovies, const T* baseMovie) const override {
+        vector<T*> similarMovies;
         vector<string> baseTags;
         string tag;
         stringstream ss(baseMovie->tags);
 
-        while (getline(ss, tag, ',')) baseTags.push_back(tag);
+        // Separar tags de la película base
+        while (getline(ss, tag, ',')) {
+            baseTags.push_back(tag);
+        }
 
+        // Buscar películas similares basándose en los tags
         for (const auto& movie : allMovies) {
             for (const auto& baseTag : baseTags) {
                 if (movie->tags.find(baseTag) != string::npos && movie != baseMovie) {
                     similarMovies.push_back(movie);
-                    break;
+                    break; // Si encuentra una coincidencia, agrega la película y rompe el bucle interior
                 }
             }
         }
@@ -27,5 +34,4 @@ public:
     }
 };
 
-
-#endif //PROYECTO_PROGRA_CTAGBASEDSIMILARMOVIES_H
+#endif // PROYECTO_PROGRA_CTAGBASEDSIMILARMOVIES_H

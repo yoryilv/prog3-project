@@ -4,11 +4,11 @@
 #include "CPelicula.h"
 #include <vector>
 
+template<typename T>
 class SimilarMoviesStrategy {
 public:
-    virtual vector<Pelicula*> findSimilar(const vector<Pelicula*>& allMovies, const Pelicula* baseMovie) const = 0;
+    virtual vector<T*> findSimilar(const vector<T*>& allMovies, const T* baseMovie) const = 0;
     virtual ~SimilarMoviesStrategy() {}
 };
-
 
 #endif //PROYECTO_PROGRA_CSIMILARMOVIESSTRATEGY_H

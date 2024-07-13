@@ -4,7 +4,8 @@
 #include "CMovieTitleMap.h"
 #include <algorithm>
 
-void mostrarDetallesPelicula(Pelicula* pelicula) {
+template<typename T>
+void mostrarDetallesPelicula(T* pelicula) {
     cout << "-------------------------------------------------------\n";
     cout << "Titulo: " << pelicula->titulo << "\n";
 
@@ -39,7 +40,8 @@ void mostrarDetallesPelicula(Pelicula* pelicula) {
     }
 }
 
-void mostrarResultados(const vector<int>& indices, const vector<Pelicula*>& peliculas) {
+template<typename T>
+void mostrarResultados(const vector<int>& indices, const vector<T*>& peliculas) {
     int count = 0;
     cout << "-------------------------------------------------------\n";
     for (int index : indices) {
@@ -48,15 +50,8 @@ void mostrarResultados(const vector<int>& indices, const vector<Pelicula*>& peli
     }
 }
 
-int obtenerAccionUsuario() {
-    string input;
-    cin >> input;
-    if (input == "n") return -1;  // Indica mostrar siguientes 5
-    if (input == "q") return -2;  // Indica salir
-    return stoi(input);  // Convierte el input a un indice
-}
-
-void buscarPorTitulo(const unordered_map<string, vector<int>>& map, const vector<Pelicula*>& peliculas) {
+template<typename T>
+void buscarPorTitulo(const unordered_map<string, vector<int>>& map, const vector<T*>& peliculas) {
     string inputTitulo;
     cout << "-------------------------------------------------------\n";
     cout << "Ingresa titulo de la pelicula: ";
@@ -80,7 +75,7 @@ void buscarPorTitulo(const unordered_map<string, vector<int>>& map, const vector
     while (continuar && currentIndex < resultados.size()) {
         int nextIndex = min(currentIndex + 5, (int)resultados.size());
         vector<int> toDisplay(resultados.begin() + currentIndex, resultados.begin() + nextIndex);
-        mostrarResultados(toDisplay, peliculas);
+        mostrarResultados<T>(toDisplay, peliculas);
 
         cout << "-------------------------------------------------------\n";
         cout << "-Seleccionar-" << endl;
@@ -96,7 +91,7 @@ void buscarPorTitulo(const unordered_map<string, vector<int>>& map, const vector
             try {
                 int peliculaId = stoi(decision);
                 if (peliculaId >= 0 && peliculaId < peliculas.size() && find(toDisplay.begin(), toDisplay.end(), peliculaId) != toDisplay.end()) {
-                    mostrarDetallesPelicula(peliculas[peliculaId]);
+                    mostrarDetallesPelicula<T>(peliculas[peliculaId]);
                     break;
                 }
                 else cout << "ID no valido. Intente nuevamente.\n";
@@ -106,9 +101,8 @@ void buscarPorTitulo(const unordered_map<string, vector<int>>& map, const vector
     }
 }
 
-
-
-void buscarPorTag(unordered_map<string, vector<int>>& mapTags, const vector<Pelicula*>& peliculas) {
+template<typename T>
+void buscarPorTag(unordered_map<string, vector<int>>& mapTags, const vector<T*>& peliculas) {
     string tag;
     cout << "-------------------------------------------------------\n";
     cout << "Ingrese tag: ";
@@ -128,7 +122,7 @@ void buscarPorTag(unordered_map<string, vector<int>>& mapTags, const vector<Peli
 
     while (continuar && currentIndex < resultados.size()) {
         vector<int> toDisplay(resultados.begin() + currentIndex, resultados.begin() + min(currentIndex + 5, (int)resultados.size()));
-        mostrarResultados(toDisplay, peliculas);
+        mostrarResultados<T>(toDisplay, peliculas); // Usar la función mostrarResultados para tipos template
 
         cout << "-------------------------------------------------------\n";
         cout << "-Seleccionar" << endl;
@@ -138,25 +132,29 @@ void buscarPorTag(unordered_map<string, vector<int>>& mapTags, const vector<Peli
         cout << "Eleccion: ";
         string decision;
         cin >> decision;
-        if (decision == "n") currentIndex += 5;
-        else if (decision == "q") continuar = false;
-        else {
+        if (decision == "n") {
+            currentIndex += 5;
+        } else if (decision == "q") {
+            continuar = false;
+        } else {
             try {
                 int peliculaId = stoi(decision);
                 if (peliculaId >= 0 && peliculaId < peliculas.size() && find(toDisplay.begin(), toDisplay.end(), peliculaId) != toDisplay.end()) {
-                    mostrarDetallesPelicula(peliculas[peliculaId]);
+                    mostrarDetallesPelicula<T>(peliculas[peliculaId]); // Asegúrate de que mostrarDetallesPelicula también sea template
                     break;
+                } else {
+                    cout << "ID no valido. Intente nuevamente.\n";
                 }
-                else cout << "ID no valido. Intente nuevamente.\n";
+            } catch (const std::exception& e) {
+                cout << "Entrada no valida. Intente nuevamente.\n";
             }
-            catch (const std::exception& e) {cout << "Entrada no valida. Intente nuevamente.\n";}
         }
     }
 }
 
 
-
-void mostrarVerMasTarde(const vector<Pelicula*>& peliculas) {
+template<typename T>
+void mostrarVerMasTarde(const vector<T*>& peliculas) {
     cout << "-------------------------------------------------------\n";
     cout << "\nPeliculas en 'Ver mas tarde':\n";
     for (const auto& pelicula : peliculas) {
@@ -164,7 +162,8 @@ void mostrarVerMasTarde(const vector<Pelicula*>& peliculas) {
     }
 }
 
-void mostrarLikes(const vector<Pelicula*>& peliculas) {
+template<typename T>
+void mostrarLikes(const vector<T*>& peliculas) {
     cout << "-------------------------------------------------------";
     cout << "\nPeliculas con 'Like':\n";
     for (const auto& pelicula : peliculas) {
