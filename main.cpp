@@ -21,7 +21,7 @@ void mostrarMenu() {
 
 int main() {
     // Asegúrate de que PeliculaEspecifica esté bien definido y usado correctamente
-    vector<PeliculaEspecifica*> peliculas = leerCSV<std::string>("mpst_full_data.csv");
+    vector<PeliculaEspecifica*> peliculas = leerCSV<string>("mpst_full_data.csv", 2);
 
     CMovieTitleMap* titleMap = CMovieTitleMap::getInstance();
     TagBasedSimilarMovies<PeliculaEspecifica> strategy;

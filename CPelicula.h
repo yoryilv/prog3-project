@@ -7,8 +7,10 @@
 #include <string>
 #include <sstream>
 #include <unordered_map>
-using namespace std;
+#include <thread>
+#include <mutex>
 
+using namespace std;
 
 template<typename T>
 class Pelicula {
@@ -24,7 +26,7 @@ class PeliculaFactory {
 public:
     static Pelicula<T>* crearPelicula(const vector<string>& campos) {
         if (campos.size() != 6) return nullptr;
-        Pelicula<T>* p = new Pelicula<T>();
+        auto* p = new Pelicula<T>();
         p->imdb_id = campos[0];
         p->titulo = campos[1];
         p->plot_synopsis = campos[2];
@@ -67,32 +69,59 @@ vector<string> separarCSV(ifstream& archivo, string& linea) {
     return campos;
 }
 
+// Función para leer una porción del archivo CSV
 template<typename T>
-vector<Pelicula<T>*> leerCSV(const string& nombreArchivo) {
-    vector<Pelicula<T>*> peliculas;
+void leerCSVPorcion(const string& nombreArchivo, int inicio, int fin, vector<Pelicula<T>*>& peliculas, mutex& mtx) {
     ifstream archivo(nombreArchivo);
+    if (!archivo.is_open()) {
+        cerr << "No se pudo abrir el archivo: " << nombreArchivo << endl;
+        return;
+    }
+
+    archivo.seekg(inicio);
+
+    string linea;
+    getline(archivo, linea); // Salta la cabecera si es necesario
+
+    while (archivo.tellg() < fin && getline(archivo, linea)) {
+        vector<string> campos = separarCSV(archivo, linea);
+        Pelicula<T>* pelicula = PeliculaFactory<T>::crearPelicula(campos);
+        if (pelicula) {
+            lock_guard<mutex> guard(mtx);
+            peliculas.push_back(pelicula);
+        }
+        else cerr << "Error procesando línea: " << linea << endl;
+    }
+
+    archivo.close();
+}
+
+template<typename T>
+vector<Pelicula<T>*> leerCSV(const string& nombreArchivo, int numThreads) {
+    vector<Pelicula<T>*> peliculas;
+    ifstream archivo(nombreArchivo, ios::ate);
     if (!archivo.is_open()) {
         cerr << "No se pudo abrir el archivo: " << nombreArchivo << endl;
         return peliculas;
     }
 
-    string linea;
-    getline(archivo, linea);
-    while (getline(archivo, linea)) {
-        vector<string> campos = separarCSV(archivo, linea);
-        Pelicula<T>* pelicula = PeliculaFactory<T>::crearPelicula(campos);
-        if (pelicula) {
-            peliculas.push_back(pelicula);
-        } else {
-            cout << "Error procesando línea: " << linea << endl;
-        }
+    int fileSize = archivo.tellg();
+    archivo.close();
+
+    int chunkSize = fileSize / numThreads;
+    vector<thread> threads;
+    mutex mtx;
+
+    for (int i = 0; i < numThreads; ++i) {
+        int inicio = i * chunkSize;
+        int fin = (i == numThreads - 1) ? fileSize : (i + 1) * chunkSize;
+
+        threads.emplace_back(leerCSVPorcion<T>, nombreArchivo, inicio, fin, ref(peliculas), ref(mtx));
     }
 
-    archivo.close();
+    for (auto& t : threads) t.join();
+
     return peliculas;
 }
-
-
-
 
 #endif // PROYECTO_PROGRA_CPELICULA_H
