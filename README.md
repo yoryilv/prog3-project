@@ -34,6 +34,7 @@ El programa muestra un menú con las siguientes opciones:
 
 ## Estructura del Proyecto
 
+
 - `main.cpp`: Archivo principal que contiene el flujo del programa.
 - `CPelicula.h`: Definición de la clase `Pelicula` y funciones relacionadas a la carga de archivos.
 - `CManejoPeliculas.h`: Funciones para manejar la búsqueda por título o tags y visualización de películas.
