@@ -123,4 +123,4 @@ vector<Pelicula<T>*> leerCSV(const string& nombreArchivo, int numThreads) {
     return peliculas;
 }
 
-#endif PROYECTO_PROGRA_CPELICULA_H
+#endif //PROYECTO_PROGRA_CPELICULA_H

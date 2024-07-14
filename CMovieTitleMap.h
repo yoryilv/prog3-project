@@ -39,4 +39,4 @@ public:
 
 unique_ptr<CMovieTitleMap> CMovieTitleMap::instance = nullptr;
 
-#endif PROYECTO_PROGRA_CMOVIETITLEMAP_H
+#endif //PROYECTO_PROGRA_CMOVIETITLEMAP_H
