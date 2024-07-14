@@ -28,12 +28,6 @@ public:
     // Método para manejar el mapa
     void insertar(const string& titulo, int index) {titleMap[titulo].push_back(index);}
 
-    vector<int> buscar(const string& titulo) {
-        auto it = titleMap.find(titulo);
-        if (it != titleMap.end()) return it->second;
-        return {};  // Devuelve vector vacío si no se encuentra el título
-    }
-
     const unordered_map<string, vector<int>>& getMap() const {return titleMap;}
 };
 
