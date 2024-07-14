@@ -20,6 +20,7 @@ CMakeFiles/proyecto_progra.dir/main.cpp.obj
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/charconv.h
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_type_traits.h
@@ -52,6 +53,7 @@ CMakeFiles/proyecto_progra.dir/main.cpp.obj
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/predefined_ops.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ptr_traits.h
@@ -63,6 +65,8 @@ CMakeFiles/proyecto_progra.dir/main.cpp.obj
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h
@@ -81,7 +85,9 @@ CMakeFiles/proyecto_progra.dir/main.cpp.obj
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h
@@ -93,8 +99,10 @@ CMakeFiles/proyecto_progra.dir/main.cpp.obj
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdlib
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h
@@ -113,13 +121,16 @@ CMakeFiles/proyecto_progra.dir/main.cpp.obj
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/pstl_config.h
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h
@@ -127,6 +138,7 @@ CMakeFiles/proyecto_progra.dir/main.cpp.obj
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string_view
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/system_error
+ C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/thread
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tuple
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/typeinfo
@@ -190,11 +202,10 @@ CMakeFiles/proyecto_progra.dir/main.cpp.obj
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/vadefs.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/wchar.h
  C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/wctype.h
- C:/Users/josea/CLionProjects/prog3-project/CManejoPeliculas.h
- C:/Users/josea/CLionProjects/prog3-project/CMovieExplorer.h
- C:/Users/josea/CLionProjects/prog3-project/CMovieTitleMap.h
- C:/Users/josea/CLionProjects/prog3-project/CPelicula.h
- C:/Users/josea/CLionProjects/prog3-project/CSimilarMoviesStrategy.h
- C:/Users/josea/CLionProjects/prog3-project/CTagBasedSimilarMovies.h
- C:/Users/josea/CLionProjects/prog3-project/main.cpp
+ C:/Users/j_lea/OneDrive/Escritorio/prog3-project/CManejoPeliculas.h
+ C:/Users/j_lea/OneDrive/Escritorio/prog3-project/CMovieExplorer.h
+ C:/Users/j_lea/OneDrive/Escritorio/prog3-project/CMovieTitleMap.h
+ C:/Users/j_lea/OneDrive/Escritorio/prog3-project/CPelicula.h
+ C:/Users/j_lea/OneDrive/Escritorio/prog3-project/CSimilarMoviesStrategy.h
+ C:/Users/j_lea/OneDrive/Escritorio/prog3-project/CTagBasedSimilarMovies.h
 

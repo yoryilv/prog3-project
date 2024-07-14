@@ -2,8 +2,7 @@
 #define PROYECTO_PROGRA_CMOVIEEXPLORER_H
 
 #include "CSimilarMoviesStrategy.h"
-#include <iostream>
-#include <vector>
+#include "CTagBasedSimilarMovies.h"
 #include <unordered_set>
 #include <algorithm>
 
@@ -11,22 +10,22 @@ template<typename T>
 class MovieExplorer {
 private:
     const SimilarMoviesStrategy<T>* strategy;  // Estrategia para encontrar películas similares
-    vector<T*> movies;                         // Lista de películas disponibles
+    vector<T*> movies;                    // Lista de películas disponibles
 
 public:
     // Constructor: inicializa con una estrategia y lista de películas
     MovieExplorer(const SimilarMoviesStrategy<T>* strategy, const vector<T*>& movies)
             : strategy(strategy), movies(movies) {}
 
-    // Establece una nueva estrategia para buscar películas similares
-    void setStrategy(const SimilarMoviesStrategy<T>* newStrategy) {
-        strategy = newStrategy;
+    // Encuentra películas similares usando la estrategia
+    vector<T*> findSimilarMovies(const T* movie) const {
+        return strategy->findSimilar(movies, movie);
     }
 
     // Muestra las películas similares a las que el usuario ha dado "Like"
     void showSimilarToAllLiked() const {
         unordered_set<string> allTags;  // Para almacenar todos los tags únicos de los "Likes"
-        vector<T*> similarMovies;       // Para almacenar todas las películas similares encontradas
+        vector<T*> similarMovies;            // Para almacenar todas las películas similares encontradas
 
         // Recopilar todos los tags únicos
         for (const auto& movie : movies) {
@@ -41,7 +40,9 @@ public:
         for (const auto& movie : movies) {
             for (const auto& tag : allTags) {
                 if (movie->tags.find(tag) != string::npos && find(similarMovies.begin(), similarMovies.end(), movie) == similarMovies.end()) {
-                    similarMovies.push_back(movie);
+                    vector<T*> foundSimilar = findSimilarMovies(movie);
+                    similarMovies.insert(similarMovies.end(), foundSimilar.begin(), foundSimilar.end());
+                    break;
                 }
             }
         }

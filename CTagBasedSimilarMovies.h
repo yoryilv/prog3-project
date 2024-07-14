@@ -2,9 +2,6 @@
 #define PROYECTO_PROGRA_CTAGBASEDSIMILARMOVIES_H
 
 #include "CSimilarMoviesStrategy.h"
-#include <sstream>
-#include <vector>
-#include <string>
 
 template<typename T>
 class TagBasedSimilarMovies : public SimilarMoviesStrategy<T> {

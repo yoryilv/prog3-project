@@ -3,6 +3,7 @@
 #include "CPelicula.h"
 #include "CMovieTitleMap.h"
 #include <algorithm>
+#include <cctype>
 
 template<typename T>
 void mostrarDetallesPelicula(T* pelicula) {
@@ -10,7 +11,7 @@ void mostrarDetallesPelicula(T* pelicula) {
     cout << "Titulo: " << pelicula->titulo << "\n";
 
     cout << endl;
-    // Recortar la sinopsis si es más larga de 700 caracteres
+    // Recortar la sinopsis si es mas larga de 700 caracteres
     string sinopsisPreview = pelicula->plot_synopsis;
     if (sinopsisPreview.length() > 700) {
         sinopsisPreview = sinopsisPreview.substr(0, 700) + "...";
@@ -50,6 +51,21 @@ void mostrarResultados(const vector<int>& indices, const vector<T*>& peliculas) 
     }
 }
 
+string capitalize(string str) {
+    bool capitalizeNext = true;
+
+    for (char& c : str) {
+        if (isspace(c)) capitalizeNext = true;
+        else if (capitalizeNext) {
+            c = static_cast<char>(toupper(static_cast<unsigned char>(c)));
+            capitalizeNext = false;
+        }
+        else c = static_cast<char>(tolower(static_cast<unsigned char>(c)));
+    }
+    return str;
+}
+
+
 template<typename T>
 void buscarPorTitulo(const unordered_map<string, vector<int>>& map, const vector<T*>& peliculas) {
     string inputTitulo;
@@ -57,6 +73,8 @@ void buscarPorTitulo(const unordered_map<string, vector<int>>& map, const vector
     cout << "Ingresa titulo de la pelicula: ";
     cin.ignore();  // Ignorar el '\n' restante en el buffer
     getline(cin, inputTitulo);
+
+    inputTitulo = capitalize(inputTitulo);  // Capitalizar el titulo ingresado
 
     vector<int> resultados;  // Almacena todos los indices encontrados
     for (const auto& pair : map) {
@@ -96,7 +114,7 @@ void buscarPorTitulo(const unordered_map<string, vector<int>>& map, const vector
                 }
                 else cout << "ID no valido. Intente nuevamente.\n";
             }
-            catch (const std::exception& e) {cout << "Entrada no valida. Intente nuevamente.\n";}
+            catch (const exception& e) { cout << "Entrada no valida. Intente nuevamente.\n"; }
         }
     }
 }
@@ -122,7 +140,7 @@ void buscarPorTag(unordered_map<string, vector<int>>& mapTags, const vector<T*>&
 
     while (continuar && currentIndex < resultados.size()) {
         vector<int> toDisplay(resultados.begin() + currentIndex, resultados.begin() + min(currentIndex + 5, (int)resultados.size()));
-        mostrarResultados<T>(toDisplay, peliculas); // Usar la función mostrarResultados para tipos template
+        mostrarResultados<T>(toDisplay, peliculas); // Usar la funcion mostrarResultados para tipos template
 
         cout << "-------------------------------------------------------\n";
         cout << "-Seleccionar" << endl;
@@ -138,12 +156,12 @@ void buscarPorTag(unordered_map<string, vector<int>>& mapTags, const vector<T*>&
             try {
                 int peliculaId = stoi(decision);
                 if (peliculaId >= 0 && peliculaId < peliculas.size() && find(toDisplay.begin(), toDisplay.end(), peliculaId) != toDisplay.end()) {
-                    mostrarDetallesPelicula<T>(peliculas[peliculaId]); // Asegúrate de que mostrarDetallesPelicula también sea template
+                    mostrarDetallesPelicula<T>(peliculas[peliculaId]); // Asegurate de que mostrarDetallesPelicula tambien sea template
                     break;
                 }
                 else cout << "ID no valido. Intente nuevamente.\n";
             }
-            catch (const std::exception& e) {cout << "Entrada no valida. Intente nuevamente.\n";}
+            catch (const exception& e) {cout << "Entrada no valida. Intente nuevamente.\n";}
         }
     }
 }
