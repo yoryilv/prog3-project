@@ -39,20 +39,34 @@ int main() {
     do {
         mostrarMenu();
         cin >> op;
+        if (cin.fail()) {
+            cin.clear(); // Restablece el estado de cin
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descarta la entrada incorrecta
+            cout << "Opcion no válida. Intente de nuevo.\n";
+            continue;
+        }
+
         switch (op) {
-            case 1: buscarPorTitulo<PeliculaEspecifica>(map, peliculas);
+            case 1:
+                buscarPorTitulo<PeliculaEspecifica>(map, peliculas);
                 break;
-            case 2: buscarPorTag<PeliculaEspecifica>(mapTags, peliculas);
+            case 2:
+                buscarPorTag<PeliculaEspecifica>(mapTags, peliculas);
                 break;
-            case 3: mostrarVerMasTarde<PeliculaEspecifica>(peliculas);
+            case 3:
+                mostrarVerMasTarde<PeliculaEspecifica>(peliculas);
                 break;
-            case 4: mostrarLikes<PeliculaEspecifica>(peliculas);
+            case 4:
+                mostrarLikes<PeliculaEspecifica>(peliculas);
                 break;
-            case 5: explorer.showSimilarToAllLiked();
+            case 5:
+                explorer.showSimilarToAllLiked();
                 break;
-            case 6: cout << "Saliendo del programa...\n";
+            case 6:
+                cout << "Saliendo del programa...\n";
                 break;
-            default: cout << "Opcion no válida. Intente de nuevo.\n";
+            default:
+                cout << "Opcion no válida. Intente de nuevo.\n";
         }
     } while (op != 6);
 
