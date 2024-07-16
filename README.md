@@ -6,6 +6,9 @@
 - Wilder Emanuel Bañon Hualpa
 - Angie Kelly Rodriguez González
 
+## Video explicativo del proyecto
+El video se encuentra [aquí](https://youtu.be/dNYmp_AfWdI)
+
 ## Plataforma de Streaming
 
 El objetivo del proyecto final es implementar una plataforma de streaming. Un programa que administre la búsqueda y visualización de la sinopsis de películas. Para ello, se implementan las siguientes operaciones:
