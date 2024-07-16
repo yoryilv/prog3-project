@@ -7,7 +7,7 @@
 - Angie Kelly Rodriguez González
 
 ## Video explicativo del proyecto
-El video se encuentra [aquí](https://youtu.be/dNYmp_AfWdI)
+El video se encuentra [aquí](https://youtu.be/bO9lR-D4Po8)
 
 ## Plataforma de Streaming
 
